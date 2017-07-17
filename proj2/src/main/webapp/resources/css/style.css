@@ -1,0 +1,12 @@
+@CHARSET "ISO-8859-1";
+.navbar-default 
+{
+ background:#C0C0C0;
+ font-size: 18px;
+ font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+.form
+{
+border-radius: 5px;
+ border: 1px solid black;
+}
