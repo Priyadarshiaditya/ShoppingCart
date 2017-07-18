@@ -21,29 +21,32 @@
 <%@include file="header.jsp" %>
 <h2>Login Form</h2>
 
-<form  name='f' action="${pageContext.request.contextPath}/j_spring_security_check" 
-
-method='POST'>
+<form  name='f' action="${pageContext.request.contextPath}/j_spring_security_check" method='POST'>
   
   <div class="container">
+  <div class="form-group">
     <label><b>Username</b></label>
-    <input type="text" class="form" placeholder="Enter Username" name="username" required>
+    <input type="text" class="form-control"	 placeholder="Enter Username" name="username" required>
 <br>
 <br>
+
     <label><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="password" required>
+    <input type="password" placeholder="Enter Password"  class="form-control" name="password" required>
 <br>
-<br>        
-    <button type="submit">Login</button>
     <input type="checkbox" checked="checked"> Remember me
-  </div>
-<br>
-<br>
-  <div class="container" style="background-color:#f1f1f1">
-    <button type="button" class="cancelbtn">Cancel</button>
-    <span class="psw">Forgot <a href="#">password?</a></span>
-  </div>
+    <br>
+  <center>      
+ 
+    <button type="submit" class="btn btn-primary btn-lg btn-success" >Login</button>
+    </center>
   <br>
+   <center>
+  
+</div>
+  </div>
+<br>
+<br>
+  
 <br>
 </form>
 

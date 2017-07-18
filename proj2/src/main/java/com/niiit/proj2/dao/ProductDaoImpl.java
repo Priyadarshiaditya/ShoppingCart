@@ -79,7 +79,7 @@ public class ProductDaoImpl implements ProductDao{
 
 	
 		
-		
+		product.setDiscontinue(false);
 
 		session.save(product);
 
@@ -93,7 +93,7 @@ public class ProductDaoImpl implements ProductDao{
 		
 		Session session = getSession();
 
-		Query query = session.createQuery("from Product");
+		Query query = session.createQuery("from Product where discontinue=false");
 		List<Product> customerList = query.list();
 
 		return customerList;
@@ -124,7 +124,8 @@ public class ProductDaoImpl implements ProductDao{
 		query.setInteger(0,id);
 
 		Product u=(Product) query.uniqueResult();
-		session.delete(u);
+		u.setDiscontinue(true);
+		session.save(u);
 		session.flush();
 
 		session.close();

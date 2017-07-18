@@ -46,7 +46,7 @@
                             </div>
                         </div></td>
                         <td class="col-sm-1 col-md-1" style="text-align: center">
-                        <input type="email" class="form-control" id="exampleInputEmail1" value="${cartItem.quantity}">
+                        ${cartItem.quantity}
                         </td>
                         <td class="col-sm-1 col-md-1 text-center"><strong>${cartItem.product.productPrice}</strong></td>
                         <td class="col-sm-1 col-md-1 text-center"><strong>${cartItem.product.productPrice * cartItem.quantity }</strong></td>

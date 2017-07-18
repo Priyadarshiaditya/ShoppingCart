@@ -26,6 +26,20 @@ public class Product implements Serializable{
 	@Transient
 	private MultipartFile file;
 	private String productImage;
+	private boolean discontinue;
+	
+	public MultipartFile getFile() {
+		return file;
+	}
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
+	public boolean isDiscontinue() {
+		return discontinue;
+	}
+	public void setDiscontinue(boolean discontinue) {
+		this.discontinue = discontinue;
+	}
 	public String getProductImage() {
 		return productImage;
 	}

@@ -12,47 +12,40 @@
 </head>
 
   <%@ include file="header.jsp" %>
+      <div class="container">
+      <div class="form-group">
+      
       <form:form method="post" action="save" enctype="multipart/form-data" >  
-    <style>
-    table th,td{
-    padding:10px
-    }
-    </style>
+    
          ${error}
-        <table style="width:100%">
-        <tr>    
-          <td>Id : </td>   
-          <td><form:input path="userId"  /></td>  
-         </tr>     
-         <tr>    
-          <td>Name : </td>   
-          <td><form:input path="userName"  /></td>  
-         </tr>    
-         <tr>    
-          <td>Address :</td>    
-          <td><form:input path="userAddress" /></td>  
-         </tr>      
-         <tr>    
-          <td>Create Password:</td>    
-          <td><form:password path="password"  id="txtPassword" /></td>  
-         </tr>   
-         <tr>    
-          <td>Confirm Password:</td>    
-          <td><input type="password" id="txtConfirmPassword" /></td>  
-         </tr>
-         <tr>
-									<td><form:hidden path="userImage"/></td>
-								</tr>
-								<tr>
-									<td>Choose Image</td>
-									<td><input type="file" name="file"/></td>
-								</tr>
+     
+        
+           <label><b>Id :</b></label>    
+          <td><form:input path="userId" class="form-control" />     
          
-         <tr>    
-          <td> </td>    
-          <td><input type="submit"  id="btnSubmit"  value="Save" onclick="return Validate()"/></td>    
-         </tr>    
-        </table>
+          <label><b>Name :    </b></label>
+          <form:input path="userName" class="form-control" />  
+             
+          <label><b> Address :    </b></label>
+          <form:input path="userAddress" class="form-control"/>  
+           
+          <label><b> Create Password:</b></label>
+         <form:password path="password"  id="txtPassword" class="form-control"/>  
+            
+          <label><b>Confirm Password:   </b></label>
+          <input type="password" id="txtConfirmPassword" class="form-control" />  
+        
+									<form:hidden path="userImage" />
+								
+									 <label><b>Choose Image:</b></label>
+								<input type="file" name="file" />
+								
+         <br>
+         <br>
+           <center>
+         <input type="submit"  id="btnSubmit" class="btn btn-primary btn-md btn-success"  value="Save" onclick="return Validate()"/>    
+           </center>
+       
        <script type="text/javascript">
     function Validate() {
         var password = document.getElementById("txtPassword").value;
@@ -66,3 +59,5 @@
 </script> 
    
        </form:form>    
+</div>
+</div>
