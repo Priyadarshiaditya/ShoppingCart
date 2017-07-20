@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.niiit.proj2.model.Cart;
+import com.niiit.proj2.model.CartItem;
 
 /**
  * @author Jo
@@ -119,5 +120,12 @@ public class CartDaoImpl implements CartDao{
 			return list.get(0);
 		}
 	}
-
+	public List<CartItem> getCartItemsByCartId(int cart) {
+		Session session = getSession();
+		String h = "from CartItem where cart.cartId=" + cart+" and status ='N'" ;
+		Query q = session.createQuery(h);
+		return q.list();
+	}
 }
+
+

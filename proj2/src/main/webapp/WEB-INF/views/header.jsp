@@ -11,7 +11,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#">Ekart</a>
+      <a class="navbar-brand" href="#">Shop First</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
@@ -42,7 +42,6 @@
   <li><a href="${pageContext.request.contextPath}/viewproduct">View Product</a></li>
           </ul>
             </li>
-         
       
    </security:authorize>
         
@@ -58,6 +57,7 @@
       	</ul>
       	<ul class="nav navbar-nav navbar-right">
       	 <c:if test="${pageContext.request.userPrincipal.name != null}">
+      	  <li><a href="${pageContext.request.contextPath}/cart/showCart"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
       	  <li><a href="${pageContext.request.contextPath}/logout"><span class="glyphicon glyphicon-log-out"></span> LogOut</a></li>
       	 </c:if>
     	</ul>

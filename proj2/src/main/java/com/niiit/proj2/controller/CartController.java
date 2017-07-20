@@ -48,14 +48,15 @@ public class CartController {
 		 String id=principal.getName();
 		 ModelAndView mv = new ModelAndView("cart");
 		 Cart cart= (Cart) session.getAttribute("cart");
-		 if(cart==null)
+		 List<CartItem> cartItems=cartItemDao.getCartItemByUserId(id);
+		 if(cartItems ==null || cartItems.size()==0)
 		 {
 			 mv.addObject("errMsg", "No Items in Cart");
 		 }
 		 else
 		 {
-			 mv.addObject("cartContent", cartItemDao.getCartItemByUserId(id));
-			 mv.addObject("grandTotal", cart.getGrandTotal());
+			 mv.addObject("cartContent",cartItemDao.getCartItemByUserId(id));
+			// mv.addObject("grandTotal", cart.getGrandTotal());
 		 }
 		 return mv;
 	 }
@@ -87,6 +88,7 @@ public class CartController {
 			{
 				cartItem.setQuantity(cartItem.getQuantity()+1);
 				cartItem.setSubTotal(cartItem.getSubTotal()+product.getProductPrice());
+				cartItem.setStatus("N");
 				cartItemDao.saveOrUpdate(cartItem);
 			//updateCart(cartItem);
 				session.setAttribute("cart", cartItem.getCart());
@@ -97,6 +99,7 @@ public class CartController {
 		 CartItem item = new CartItem();
 		 item.setCart(cart);
 		 item.setProduct(product);
+		 item.setStatus("N");
 		 item.setQuantity(1);  
 		 item.setSubTotal(product.getProductPrice()); 
 		 cartItemDao.saveOrUpdate(item);

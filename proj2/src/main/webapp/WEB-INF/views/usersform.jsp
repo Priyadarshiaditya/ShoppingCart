@@ -26,9 +26,7 @@
           <label><b>Name :    </b></label>
           <form:input path="userName" class="form-control" />  
              
-          <label><b> Address :    </b></label>
-          <form:input path="userAddress" class="form-control"/>  
-           
+                   
           <label><b> Create Password:</b></label>
          <form:password path="password"  id="txtPassword" class="form-control"/>  
             

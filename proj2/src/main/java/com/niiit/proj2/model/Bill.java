@@ -17,11 +17,19 @@ public class Bill implements Serializable {
     @Column(name="billId")
 	private int billId;
 	private Date billDate;
+	private double total;
 	private String billAddress;
 	@ManyToOne
 	@JoinColumn(name="userId")
 	Users users;
-	public int getBillId() {
+
+public double getTotal() {
+		return total;
+	}
+	public void setTotal(double total) {
+		this.total = total;
+	}
+public int getBillId() {
 		return billId;
 	}
 	public void setBillId(int billId) {

@@ -30,9 +30,28 @@ public class Users implements Serializable
 	private String userName;
 	private String password;
 	private boolean enabled;
+	private boolean discontinue;
 	private String userRole;
 	@OneToMany(mappedBy="users")
 	List<Bill> bill;
+
+
+
+
+
+	public boolean isDiscontinue() {
+		return discontinue;
+	}
+
+
+
+
+
+
+	public void setDiscontinue(boolean discontinue) {
+		this.discontinue = discontinue;
+	}
+
 
 
 
@@ -171,7 +190,7 @@ public class Users implements Serializable
 
 
 
-	private String userAddress;
+
 	
 	
 	
@@ -210,29 +229,7 @@ public class Users implements Serializable
 	}
 
 
-
-
-
-
-	public String getUserAddress() {
-		return userAddress;
-	}
-
-
-
-
-
-
-	public void setUserAddress(String userAddress) {
-		this.userAddress = userAddress;
-	}
-
-
-
-
-
-
-	public Users()
+public Users()
 	{
 	}
 	// parameterised constructor

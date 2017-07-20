@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" isELIgnored="false"%>
     <head>
   <title>Bootstrap Case</title>
   <meta charset="utf-8">
@@ -46,7 +46,7 @@
                             </div>
                         </div></td>
                         <td class="col-sm-1 col-md-1" style="text-align: center">
-                        ${cartItem.quantity}
+<b>                        ${cartItem.quantity}</b>
                         </td>
                         <td class="col-sm-1 col-md-1 text-center"><strong>${cartItem.product.productPrice}</strong></td>
                         <td class="col-sm-1 col-md-1 text-center"><strong>${cartItem.product.productPrice * cartItem.quantity }</strong></td>
@@ -56,7 +56,7 @@
                         
                         
                          <td class="col-sm-1 col-md-1">
-                           <a href="${pageContext.request.contextPath}/delete/${cartItem.cartItemId}"><button type="button" class="btn btn-danger">
+                           <a href="${pageContext.request.contextPath}/cart/deleteItem/${cartItem.cartItemId}"><button type="button" class="btn btn-danger">
                             <span  class="glyphicon glyphicon-remove"></span> Remove
                         </button></a>
                         </td>
@@ -73,26 +73,23 @@
                         <td>   </td>
                      
                     
-                    <tr>
-                        <td>   </td>
-                        <td>   </td>
-                        <td>   </td>
-                        <td><h3>Grand Total</h3></td>
-                        <td class="text-right"><h3><strong>${tot}</strong></h3></td>
-                    </tr>
+                    
                     
                    
                           </c:forEach>
-                      
-                      
+                      <tr>
+                        <td>   </td>
+                        <td>   </td>
+                      <td></td>
+                        <td><h3>Grand Total:</h3></td>
+                        <td class="text-right"><h3><strong>${tot}</strong></h3></td>
+                    </tr>
                     <tr>
-                        <td>   </td>
-                        <td>   </td>
-                        <td>   </td>
-                       <td><a href="/Chillin/home" class="btn btn-warning"><i
+                       
+                       <td><a href="/proj2/home1" class="btn btn-warning"><i
 							class="fa fa-angle-left"></i> Continue Shopping</a></td>
-					<td colspan="2" class="hidden-xs"></td>
-					<td><a href="/Chillin/billing" class="btn btn-success btn-block">Checkout
+					<td colspan="3" class="hidden-xs"></td>
+					<td><a href="/proj2/billform" class="btn btn-success btn-block">Checkout
 							<i class="fa fa-angle-right"></i>
 					</a></td>
                     </tr>

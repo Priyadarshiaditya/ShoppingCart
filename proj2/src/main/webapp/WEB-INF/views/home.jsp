@@ -4,16 +4,16 @@
    
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>Bootstrap Case</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-   
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
+	<head>
+	  <title>Bootstrap Case</title>
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	   
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	</head>
+	<body>
 
 <%@ include file="header.jsp" %>
   <div class="container">
@@ -27,6 +27,7 @@
     </ol>
 
     <!-- Wrapper for slides -->
+   
     <div class="carousel-inner">
       <div class="item active">
         <img src="http://i.imgur.com/syaiqAs.jpg" alt="Los Angeles" style="width:100%;height:500px">
@@ -55,3 +56,4 @@
  
   </body>
 </html>
+<%@ include file="footer.jsp" %>

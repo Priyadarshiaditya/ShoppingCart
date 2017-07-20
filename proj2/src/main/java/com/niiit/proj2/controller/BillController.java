@@ -2,6 +2,7 @@ package com.niiit.proj2.controller;
 
 import java.security.Principal;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -18,12 +19,16 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.niiit.proj2.dao.BillDao;
 import com.niiit.proj2.dao.CartDao;
+import com.niiit.proj2.dao.CartItemDao;
 import com.niiit.proj2.dao.CategoryDao;
 import com.niiit.proj2.dao.ProductDao;
 import com.niiit.proj2.dao.UsersDao;
 import com.niiit.proj2.model.Bill;
+import com.niiit.proj2.model.CartItem;
 import com.niiit.proj2.model.Product;
 import com.niiit.proj2.model.Users;
+
+
 
 @Controller
 public class BillController {
@@ -31,6 +36,8 @@ public class BillController {
  	  UsersDao usersDao;
 	  @Autowired 
 	  CartDao cartDao;
+	  @Autowired 
+	  CartItemDao cartItemDao;
 	 @Autowired
 	 BillDao billDao;
 	
@@ -39,12 +46,20 @@ public class BillController {
 		 return new ModelAndView("billform","command",new Bill());
 	}
 		 @RequestMapping(value="/save2",method = RequestMethod.POST)  
-		    public ModelAndView savebill(@ModelAttribute("bill") Bill bill , HttpServletRequest request,Principal principal){
-			 
+		    public ModelAndView savebill(@ModelAttribute("bill") Bill bill , HttpSession session,Principal principal){
+			String s=(String)session.getAttribute("tot");
+			 double stotal=Double.parseDouble(s);
 			 String id=principal.getName();
  			 Users u=usersDao.getUsersById(id);
-			 bill.setUsers(u);
-			 
+ 			int cart=u.getCart().getCartId();
+ 			List<CartItem>  items=cartDao.getCartItemsByCartId(cart);
+			for(CartItem i:items)
+			{
+				i.setStatus("Y");
+				cartItemDao.saveOrUpdate(i);
+			}
+ 			 bill.setUsers(u);
+ 			bill.setTotal(stotal);
 			 bill.setBillDate(new Date(System.currentTimeMillis()));
 			 billDao.addBill(bill);
 			 int billId=bill.getBillId();

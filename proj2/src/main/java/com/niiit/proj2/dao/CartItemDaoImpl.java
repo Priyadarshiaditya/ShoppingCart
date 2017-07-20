@@ -115,9 +115,8 @@ public class CartItemDaoImpl implements CartItemDao {
 	@Transactional
 	public List<CartItem> getCartItemByUserId(String userId){
 		Session session = getSession();
-		String hql = "from CartItem where cart.user.userId=" + "'" + userId + "'";
+		String hql = "from CartItem where cart.user.userId=" + "'" + userId + "'" + "and status = 'N'";
 		Query query = session.createQuery(hql);
 		return query.list();
 	}
-
 }

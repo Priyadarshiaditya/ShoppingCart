@@ -18,7 +18,6 @@
    <tr>  
    <td>${user.userId}</td>  
    <td>${user.userName}</td>  
-   <td>${user.userAddress}</td>
      
   <td><img src="${pageContext.request.contextPath}/${user.userImage}" height="50" width="50"></td>
    <td><a href="editusers/${user.userId}">Edit</a></td>  

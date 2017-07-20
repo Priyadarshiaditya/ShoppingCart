@@ -39,7 +39,7 @@ public class UsersDaoImpl implements UsersDao {
 		
 		users.setEnabled(true);
 		users.setUserRole("ROLE_USER");
-
+		users.setDiscontinue(false);
 		session.save(users);
 
 		session.flush();
@@ -52,7 +52,7 @@ public class UsersDaoImpl implements UsersDao {
 		// TODO Auto-generated method stub
 		Session session = getSession();
 		
-		Query query = session.createQuery("from Users where userId = '"+ userId+"'");
+		Query query = session.createQuery("from Users where userId = '"+ userId+"'"+" and discontinue=false");
 		List<Users> userList = query.list();
         session.close();
 
@@ -70,7 +70,7 @@ public class UsersDaoImpl implements UsersDao {
 		// TODO Auto-generated method stub
 		Session session = getSession();
 
-		Query query = session.createQuery("from Users");
+		Query query = session.createQuery("from Users where discontinue=false");
 		List<Users> customerList = query.list();
 
 		return customerList;
@@ -81,7 +81,7 @@ public class UsersDaoImpl implements UsersDao {
 		// TODO Auto-generated method stub
 		Session session = getSession();
 
-		Query query = session.createQuery("from Users where username = ?");
+		Query query = session.createQuery("from Users where username = ? and discontinue=false");
 		query.setString(0, userName);
 
 		return (Users) query.uniqueResult();
@@ -106,11 +106,12 @@ public class UsersDaoImpl implements UsersDao {
 		
 		Session session = getSession();
 
-		Query query = session.createQuery("from Users where userId = ?");
+		Query query = session.createQuery("from Users where userId = ? and discontinue=false");
 		query.setString(0, userId);
 
 		Users u=(Users) query.uniqueResult();
-		session.delete(u);
+		u.setDiscontinue(true);
+		session.save(u);
 		session.flush();
 
 		session.close();
