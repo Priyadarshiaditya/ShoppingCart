@@ -18,7 +18,7 @@ public class Product implements Serializable{
 	private int productId;
 	private String productName;
 	private double productPrice;
-	
+	private String productDescription;
 
 	@ManyToOne
 	@JoinColumn(name="categoryId")
@@ -28,6 +28,12 @@ public class Product implements Serializable{
 	private String productImage;
 	private boolean discontinue;
 	
+	public String getProductDescription() {
+		return productDescription;
+	}
+	public void setProductDescription(String productDescription) {
+		this.productDescription = productDescription;
+	}
 	public MultipartFile getFile() {
 		return file;
 	}

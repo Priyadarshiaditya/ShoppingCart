@@ -17,24 +17,29 @@
 </head>
 <body>
 <%@ include file="header.jsp" %>
-<table border="2" width="70%" cellpadding="2">  
-<tr><th></th><th>Name</th></tr>  
+<div class="container">
+<div class="row">
+        <div class="col-sm-12 col-md-10 col-md-offset-1">
+<table  class="table table-hover" >  
+<tr><th>Image</th><th>Name</th><th>Price</th><th>Show</th></tr>  
    <c:forEach var="product" items="${productList}">   
    <tr>  
-  <%--  <td><img src="${pageContext.request.contextPath}/${user.userImage}" height="50" width="50"></td> --%>
-   <td>${product.productName}</td>  
-       
+   <td><img src="${pageContext.request.contextPath}/${product.productImage}" height="150" width="150"></td> 
+   <td><h4><b>${product.productName}</b></h4></td>  
+   
+    <td><h4><b>${product.productPrice}</b></h4></td>   
   
-   <td><a href="${pageContext.request.contextPath}/showProduct/${product.productId}">Show</a></td>
+   <td><a href="${pageContext.request.contextPath}/showProduct/${product.productId}"><button type="button" class="btn btn-success">
+                         <span  class="glyphicon glyphicon-ok"></span>   Show
+                        </button></a></td>
     
-      <td>
- <a href="${pageContext.request.contextPath}/cart/addItem/${product.productId}" class="btn btn-info btn-lg">
-    <span class="glyphicon glyphicon-shopping-cart"></span> ADD TO CART
-   </a>
-</td>
+
     
    </tr>  
    </c:forEach>  
    </table>  
+   </div>
+   </div>
+   </div>
 </body>
 </html>

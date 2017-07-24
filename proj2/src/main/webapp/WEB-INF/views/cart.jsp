@@ -61,17 +61,8 @@
                         </button></a>
                         </td>
                     </tr>
-                    <tr>
-                        <td>   </td>
-                        <td>   </td>
-                        <td>   </td>
-                        <td><h5>Subtotal</h5></td>
-                        <td class="text-right"><h5><strong>${cartItem.subTotal}</strong></h5></td>
-                    </tr>
-                    <tr>
-                        <td>   </td>
-                        <td>   </td>
-                     
+                  
+                  
                     
                     
                     

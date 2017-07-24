@@ -18,7 +18,7 @@
       <form:form method="post" action="save" enctype="multipart/form-data" >  
     
          ${error}
-     
+  
         
            <label><b>Id :</b></label>    
           <td><form:input path="userId" class="form-control" />     
@@ -58,4 +58,4 @@
    
        </form:form>    
 </div>
-</div>
+</div>x

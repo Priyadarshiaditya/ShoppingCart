@@ -2,6 +2,7 @@
 .navbar-default 
 {
  background:#C0C0C0;
+ color:#C0C0C0;
  font-size: 18px;
  font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif;
 }
@@ -9,4 +10,12 @@
 {
 border-radius: 5px;
  border: 1px solid black;
+}
+.navbar-form{
+	padding: 20px-40px;
+}
+.jj
+{
+	height:600px;
+	width: 400px;
 }

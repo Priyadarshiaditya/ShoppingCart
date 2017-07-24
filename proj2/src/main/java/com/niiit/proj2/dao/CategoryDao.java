@@ -10,5 +10,8 @@ public interface CategoryDao {
 	public Product listByProductId(int productId);
 	
 	public void addProduct(Product product);
-	
+	public void addCategory(Category category);
+	public Category getByCategoryId(int categoryId);
+	public void updateCategory(Category category);
+	public void deleteCategory(int id);
 }

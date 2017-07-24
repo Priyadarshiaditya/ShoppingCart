@@ -32,6 +32,22 @@ public class CategoryDaoImpl implements CategoryDao{
         session.close();
 		return categoryList;
 	}
+	public void updateCategory(Category category)
+	{Session session = getSession();
+
+
+
+	session.update(category);
+	session.flush();
+
+	session.close();
+		
+	}
+	public Category getByCategoryId(int categoryId) {
+		Session session = getSession();
+		return (Category) session.get(Category.class, categoryId);
+	}
+
 	public List<Product> listByCategoryId(int categoryId) {
 		// TODO Auto-generated method stub
 		Session session = getSession();
@@ -42,6 +58,21 @@ public class CategoryDaoImpl implements CategoryDao{
         session.close();
         System.out.println("list "+productList);
 		return productList;
+	}
+	public void deleteCategory(int id)
+	{
+		Session session = getSession();
+
+		Query query = session.createQuery("from Category where CategoryId = ?");
+		query.setInteger(0,id);
+
+		Category u=(Category) query.uniqueResult();
+	  
+		session.delete(u);
+		session.flush();
+
+		session.close();
+		
 	}
 	public Product listByProductId(int productId) {
 		// TODO Auto-generated method stub
@@ -69,6 +100,17 @@ public class CategoryDaoImpl implements CategoryDao{
 		session.close();
 
 	}
+	public void addCategory(Category category)
+	{
+		Session session = getSession();
 
-}
+		
+		session.save(category);
+
+		session.flush();
+
+		session.close();
+	}
+	}
+
  

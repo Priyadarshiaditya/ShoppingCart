@@ -27,12 +27,33 @@
 									<td>Choose Image</td>
 									<td><input type="file" name="file"/></td>
 								</tr>
-         
-         <tr>    
+            <tr>    
+          <td>Product Description : </td>   
+   <td ><form:textarea path="productDescription" id="desc" rows="5" cols="100" size="255" /></td>
+         </tr>  
+        
+        <tr>
+				<td>Category:</td>
+				<td><form:select path="productCategory.categoryId" itemLabel="categoryName" itemValue="categoryId" items="${categoryList}"
+					 /></td>
+				<td><form:errors path="productCategory.categoryId" cssClass="error" /></td>
+			</tr>
+              <tr>
+                  
            
          <tr>    
           <td> </td>    
-          <td><input type="submit" value="Edit Save" /></td>    
+          <td><input type="submit" value="Edit Save" onclick="return limitText()" /></td>    
          </tr>    
         </table>    
        </form:form>    
+        <script type="text/javascript">
+     function limitText() {
+    	    if (document.getElementById("desc").value.length >=255) {
+    	    	alert("Product Description should exceed 255 characters");
+    	    	 return false;
+    	    } 
+    	    return true;
+    	}
+    
+</script> 

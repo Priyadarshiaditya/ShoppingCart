@@ -1,8 +1,12 @@
+ <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1" isELIgnored="false"%>
  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
   <%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
-   <link rel="stylesheet" href="<c:url value="/resources/css/style.css"/>">
- 	<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" isELIgnored="false"%>
+  
+ 		 
+	   <link rel="stylesheet" href="<c:url value="/resources/css/style.css"/>">
+	
+   
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -40,6 +44,16 @@
           
   <li><a href="${pageContext.request.contextPath}/manageproduct">Add Product</a></li>
   <li><a href="${pageContext.request.contextPath}/viewproduct">View Product</a></li>
+          </ul>
+            </li>
+             <li class="dropdown">
+        
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Manage Category <span class="caret"></span></a>
+         <!-- <ul class="dropdown-menu">  is used to create the sub menu items -->
+          <ul class="dropdown-menu">
+          
+  <li><a href="${pageContext.request.contextPath}/managecategory">Add Category</a></li>
+  <li><a href="${pageContext.request.contextPath}/viewcategory">View Category</a></li>
           </ul>
             </li>
       

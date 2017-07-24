@@ -3,10 +3,11 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.util.List;
 
+
+
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -61,7 +62,13 @@ public class ProductController {
 			 ModelAndView mv= new ModelAndView("login");
 			 return mv;
 		 }
+	 @RequestMapping("/managecategory")
+	    
+	    public ModelAndView addCategory(){
 		 
+		 ModelAndView mv=  new ModelAndView("managecategory","command",new Category());
+		 return mv;
+	 } 		
 		 @RequestMapping("/manageproduct")
 		    
 		    public ModelAndView addProduct(){
@@ -116,11 +123,25 @@ public class ProductController {
 			 productDao.addProduct(product);
 		        return new ModelAndView("redirect:/home1");//will redirect to viewusers request mapping  
 		    }  	 
+		 @RequestMapping(value="/save3",method = RequestMethod.POST)  
+		    public ModelAndView save3(@ModelAttribute("category")Category category, HttpServletRequest 
+		    		request)
+		 {  	    	
+		    	
+			 categoryDao.addCategory(category);
+		        return new ModelAndView("redirect:/home1");//will redirect to viewusers request mapping  
+		    }  	 
 		
+
 		 @RequestMapping("/viewproduct")  
 		    public ModelAndView viewusers(){  
 		        List<Product> list=productDao.getAllProducts();
 		        return new ModelAndView("viewproduct","list",list);  
+		    }  
+		 @RequestMapping("/viewcategory")  
+		    public ModelAndView viewcategory(){  
+		        List<Category> list=categoryDao.list();
+		        return new ModelAndView("viewcategory","list",list);  
 		    }  
 		    @RequestMapping(value="/editproduct/{id}")  
 		    public ModelAndView edit(@PathVariable int id){  
@@ -129,7 +150,21 @@ public class ProductController {
 		        System.out.println(product.getProductName()+" mmmmmmm "+product.getProductImage());
 		        mv.addObject("photo",product.getProductImage());
 		        return mv;  
+		    }
+		    @RequestMapping(value="/editcategory/{id}")  
+		    public ModelAndView edit5(@PathVariable int id){  
+		        Category category=categoryDao.getByCategoryId(id);  
+		        ModelAndView mv=new ModelAndView("categoryeditform","command",category);  
+		        return mv;  
 		    }  
+		    @RequestMapping(value="/editsave2",method = RequestMethod.POST)  
+		    public ModelAndView editsave2(@ModelAttribute("category") Category category,
+		    		HttpServletRequest request){  
+		    	categoryDao.updateCategory(category);
+		        return new ModelAndView("redirect:/viewcategory");	
+
+		    	
+		    }		   
 		    @RequestMapping(value="/editsave1",method = RequestMethod.POST)  
 		    public ModelAndView editsave(@ModelAttribute("product") Product product, HttpServletRequest request, 
 					@RequestParam("file") MultipartFile file){  
@@ -175,7 +210,12 @@ productDao.updateProduct(product);
 		      productDao.deleteProduct(id);
 		        return new ModelAndView("redirect:/viewproduct");  
 		    }  
-
+		    @RequestMapping(value="/deletecategory/{id}",method = RequestMethod.GET)  
+		    public ModelAndView delete2(@PathVariable int id){ 
+		    	
+		      categoryDao.deleteCategory(id);
+		        return new ModelAndView("redirect:/viewcategory");  
+		    }  
 		
 	 
 	

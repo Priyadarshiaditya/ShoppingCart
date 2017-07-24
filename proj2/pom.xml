@@ -73,7 +73,7 @@
   
     
     <!-- The spring-webmvc module (also known as the Web-Servlet module) contains 
-			SpringÃ¢â‚¬â„¢s model-view-controller (MVC) and REST Web Services implementation 
+			SpringÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢s model-view-controller (MVC) and REST Web Services implementation 
 			for web applications -->
 		<dependency>
 			<groupId>org.springframework</groupId>
