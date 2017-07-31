@@ -30,12 +30,12 @@
             <c:forEach items="${categoryList}" var="category">
             <li><a href="${pageContext.request.contextPath}/showProductsByCategory/${category.categoryId}">${category.categoryName}</a></li>
              </c:forEach>
-          <c:if test="${pageContext.request.userPrincipal.name != null}">
+        <security:authorize access="hasRole('ROLE_ADMIN')">	
                     <li><a href="${pageContext.request.contextPath}/viewusers">View All Users</a></li>
-                    </c:if>
+                    
     
         
-        <security:authorize access="hasRole('ROLE_ADMIN')">				
+        			
     <li class="dropdown">
         
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Manage Products <span class="caret"></span></a>

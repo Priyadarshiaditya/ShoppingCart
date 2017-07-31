@@ -25,7 +25,7 @@
    <td>${category.categoryName}</td>  
   
    <td><a href="editcategory/${category.categoryId}">Edit</a></td>  
-   <td><a href="deletecategory/${category.categoryId}">Delete</a></td>  
+     
    </tr>  
    </c:forEach>  
    </table>  

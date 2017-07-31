@@ -19,7 +19,7 @@
 	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	</head>
 <%@include file="header.jsp"%>
-
+<div class="form-group">
 <form:form method="post" action="save2" >  
     <style>
     table th,td{
@@ -28,19 +28,17 @@
     </style>
          ${error}
         <table style="width:100%">
-        <tr>    
-          <td>Id : </td>   
-          <td><form:hidden path="billId"  /></td>  
-         </tr> 
+       
          <tr>    
-          <td>Address :</td>    
-          <td><form:input path="billAddress" /></td>  
+          <td><b>Address :</b></td>    
+          <td><form:input path="billAddress" class="form-control" /></td>  
          </tr>
          <tr>    
           <td> </td>    
-          <td><input type="submit"   value="Save" /></td>    
+          <td><input type="submit" class="btn btn-primary btn-md btn-success"  value="Proceed" /></td>    
          </tr>
 </table>
 </form:form>
+</div>
 </body>
 </html>
